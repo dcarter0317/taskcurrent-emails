@@ -85,10 +85,10 @@
       <!-- CTAs: columns stack on mobile -->
       <mj-section mj-class="body-section" padding="24px 24px 8px" text-align="left">
         <mj-column width="208px" padding-bottom="8px">
-          <mj-button mj-class="btn-primary" align="left" padding="0" css-class="cta" href="https://taskcurrent.vercel.app/demo?utm_source=taskcurrent&utm_medium=email&utm_campaign=saas_taskcurrent&utm_content=view_demo_details">View Demo Details</mj-button>
+          <mj-button mj-class="btn-primary" align="left" padding="0" css-class="cta" href="https://taskcurrent.vercel.app/demo?utm_source=taskcurrent&amp;utm_medium=email&amp;utm_campaign=saas_taskcurrent&amp;utm_content=view_demo_details">View Demo Details</mj-button>
         </mj-column>
         <mj-column width="208px" padding-bottom="8px">
-          <mj-button mj-class="btn-link" align="left" padding="0" css-class="cta" href="https://taskcurrent.vercel.app/?utm_source=taskcurrent&utm_medium=email&utm_campaign=saas_taskcurrent&utm_content=Need+to+reschedule">Need to reschedule?</mj-button>
+          <mj-button mj-class="btn-link" align="left" padding="0" css-class="cta" href="https://taskcurrent.vercel.app/early-access?utm_source=taskcurrent&amp;utm_medium=email&amp;utm_campaign=saas_taskcurrent&amp;utm_content=Need+to+reschedule">Need to reschedule?</mj-button>
         </mj-column>
       </mj-section>
 

@@ -1,8 +1,8 @@
 <mjml>
 <mj-head>
-  <mj-font name="Geist Mono" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;700&display=swap" />
-  <mj-font name="Geist" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&display=swap" />
-  <mj-font name="Open Sans" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" />
+  <mj-font name="Geist Mono" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;700&amp;display=swap" />
+  <mj-font name="Geist" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;display=swap" />
+  <mj-font name="Open Sans" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;display=swap" />
 
     <!-- 1. Define your Global Styleguide Components -->
     <mj-style>
