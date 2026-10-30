@@ -75,10 +75,10 @@
       <!-- CTAs: columns stack on mobile -->
       <mj-section mj-class="body-section" padding="24px 24px 8px" text-align="left">
         <mj-column width="208px" padding-bottom="8px">
-          <mj-button mj-class="btn-primary" align="left" padding="0" css-class="cta" href="taskcurrent.vercel.app/?utm_source=taskcurrent_email&utm_medium=email&utm_campaign=early_access_confirmation&utm_content=primary_cta">Explore TaskCurrent</mj-button>
+          <mj-button mj-class="btn-primary" align="left" padding="0" css-class="cta" href="https://taskcurrent.vercel.app/early-access?utm_source=taskcurrent&utm_medium=email&utm_campaign=saas_taskcurrent&utm_content=explore_taskcurrent">Explore TaskCurrent</mj-button>
         </mj-column>
         <mj-column width="160px">
-          <mj-button mj-class="btn-icon" align="left" padding="0 0 0 15px" css-class="cta" href="taskcurrent.vercel.app/demo?…&utm_content=secondary_cta">Book a Demo &#8594;</mj-button>
+          <mj-button mj-class="btn-icon" align="left" padding="0 0 0 15px" css-class="cta" href="https://taskcurrent.vercel.app/demo?utm_source=taskcurrent&utm_medium=email&utm_campaign=saas_taskcurrent&utm_content=book_a_demo">Book a Demo &#8594;</mj-button>
         </mj-column>
       </mj-section>
 
