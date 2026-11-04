@@ -1,0 +1,35 @@
+name: Test TaskCurrent Cloudflare Access
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-authentication:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test authenticated n8n webhook
+        shell: bash
+        env:
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          if [[ -z "$CF_ACCESS_CLIENT_ID" || -z "$CF_ACCESS_CLIENT_SECRET" ]]; then
+            echo "::error::Missing Cloudflare credentials"
+            exit 1
+          fi
+
+          curl --silent --show-error \
+            --max-time 20 \
+            --dump-header /tmp/response-headers \
+            --output /dev/null \
+            --write-out 'HTTP status: %{http_code}\n' \
+            -X POST \
+            "https://n8n.dcartdevelopment.com/webhook/taskcurrent-email-build" \
+            -H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID" \
+            -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET" \
+            -H "Content-Type: application/json" \
+            -d '{"test":true,"source":"github-actions"}'
+
+          grep -Ei '^(HTTP/|server:|cf-access-domain:|content-type:|location:)' \
+            /tmp/response-headers || true
