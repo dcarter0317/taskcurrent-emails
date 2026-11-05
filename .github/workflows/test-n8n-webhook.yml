@@ -19,7 +19,7 @@ jobs:
             exit 1
           fi
 
-          curl --silent --show-error \
+          curl --silent --show-error --fail-with-body \
             --max-time 20 \
             --dump-header /tmp/response-headers \
             --output /dev/null \
