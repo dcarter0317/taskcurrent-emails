@@ -1,0 +1,43 @@
+{
+  "project": "taskcurrent",
+  "generated_at": "2026-11-05T01:14:03.697Z",
+  "template_count": 6,
+  "templates": [
+    {
+      "source": "demo_reminder.mjml",
+      "html": "demo_reminder.html",
+      "bytes": 47496,
+      "sha256": "4b3cd45bcb69e6b94bff8e6be0dab11d9aac1db7e8000bc03fe7fc41d927df48"
+    },
+    {
+      "source": "demo_request_confirmation.mjml",
+      "html": "demo_request_confirmation.html",
+      "bytes": 41859,
+      "sha256": "3e309dafb3f506d1a9613b91eea540f8673137ed71456d727491535b7581df88"
+    },
+    {
+      "source": "early_access.mjml",
+      "html": "early_access.html",
+      "bytes": 41534,
+      "sha256": "59f1c2959d1ea4283c87382d7d060e1b3efb08967f3a0b38a6857bb7bae2f6cf"
+    },
+    {
+      "source": "early_access_product_intro.mjml",
+      "html": "early_access_product_intro.html",
+      "bytes": 47030,
+      "sha256": "ba85bc54e9840cfe05b4441730d72ba4ff953d7536a3a125d5d3eb95434f0256"
+    },
+    {
+      "source": "post_demo_followup.mjml",
+      "html": "post_demo_followup.html",
+      "bytes": 51200,
+      "sha256": "d0a6886df7a58babbab0886a71da8e72ee94f52350902b2edfead9bffa0f0bca"
+    },
+    {
+      "source": "use_case.mjml",
+      "html": "use_case.html",
+      "bytes": 42503,
+      "sha256": "bdb8e3e0a538654f291a3a8ef31acbd0580c45ce35ad407bc675e4758a5f4c26"
+    }
+  ]
+}
