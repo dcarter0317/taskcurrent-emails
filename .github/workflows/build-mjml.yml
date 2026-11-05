@@ -45,6 +45,21 @@ jobs:
       - name: Validate, quality-check and compile MJML templates
         run: npm run build:emails
 
+      - name: Install Chromium for previews
+        run: npx playwright install --with-deps chromium
+
+      - name: Render email previews
+        run: npm run render:previews
+
+      - name: Upload email previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taskcurrent-email-previews
+          path: previews/
+          retention-days: 14
+          if-no-files-found: ignore
+
       - name: Summarize quality warnings
         if: always()
         run: |

@@ -61,3 +61,9 @@ These typos are not automatically changed by this starter. The first local build
 **Errors (fail the build, no manifest written):** link or image host not on the allowlist, missing/incorrect `utm_source`/`utm_medium`/`utm_campaign`, missing or badly formatted `utm_content` (snake_case), missing `<title>`, links with no accessible text, plus the existing checks (alt attribute, https-only, size over 102 KB, empty hrefs, CI-only live link check).
 
 **Warnings (logged, recorded per template in `dist/manifest.json` under `warnings`, shown in the Actions step summary):** `href="#"` placeholders, generic link text, preview text identical to title, missing/`und` `lang`, images without width/height, duplicate UTM params.
+
+## Email rendering previews
+
+`npm run render:previews` (run after `npm run build:emails`) renders each compiled email in headless Chromium and writes PNGs to `previews/` (git-ignored): `<name>-desktop.png` (800px), `<name>-mobile.png` (375px, 2x) and `<name>-dark.png` (dark color scheme), plus `previews.json`. It reports horizontal overflow and fails if any image fails to load. First-time setup: `npx playwright install chromium`. In CI the PNGs are uploaded as the `taskcurrent-email-previews` artifact on every run, including pull requests.
+
+These are Chromium renders, not Outlook/Gmail/Apple Mail; they catch layout and dark-mode problems but not client-specific quirks.

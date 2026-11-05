@@ -4,9 +4,11 @@
   "private": true,
   "description": "MJML email templates with a validated GitHub Actions build",
   "scripts": {
-    "build:emails": "node scripts/build-emails.cjs"
+    "build:emails": "node scripts/build-emails.cjs",
+    "render:previews": "node scripts/render-previews.cjs"
   },
   "devDependencies": {
-    "mjml": "5.4.1"
+    "mjml": "5.4.1",
+    "playwright": "^1.64.1"
   }
 }
