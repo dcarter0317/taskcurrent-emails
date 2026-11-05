@@ -53,3 +53,11 @@ These typos are not automatically changed by this starter. The first local build
 - MJML 5 requires an explicit setting to process `mj-include` tags; the build enables them.
 - GitHub automatically injects `GITHUB_SHA`, `GITHUB_RUN_ID`, `GITHUB_REF_NAME`, and `GITHUB_REPOSITORY` in the workflow runner.
 - Test sends, ESP integrations, and n8n transformations are intentionally not included yet.
+
+## Email quality checks
+
+`npm run build:emails` validates every compiled email after MJML strict compilation. Rules live in `scripts/checks/quality.cjs`; project settings (allowed link/image hosts, required UTM values, `utm_content` pattern, generic link text list) live in `email-quality.config.json`.
+
+**Errors (fail the build, no manifest written):** link or image host not on the allowlist, missing/incorrect `utm_source`/`utm_medium`/`utm_campaign`, missing or badly formatted `utm_content` (snake_case), missing `<title>`, links with no accessible text, plus the existing checks (alt attribute, https-only, size over 102 KB, empty hrefs, CI-only live link check).
+
+**Warnings (logged, recorded per template in `dist/manifest.json` under `warnings`, shown in the Actions step summary):** `href="#"` placeholders, generic link text, preview text identical to title, missing/`und` `lang`, images without width/height, duplicate UTM params.

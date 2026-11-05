@@ -1,0 +1,16 @@
+{
+  "maxBytes": 104448,
+  "allowedLinkHosts": ["taskcurrent.vercel.app"],
+  "allowedImageHosts": ["res.cloudinary.com"],
+  "utm": {
+    "requiredOnHosts": ["taskcurrent.vercel.app"],
+    "fixed": {
+      "utm_source": "taskcurrent",
+      "utm_medium": "email",
+      "utm_campaign": "saas_taskcurrent"
+    },
+    "requiredKeys": ["utm_content"],
+    "contentPattern": "^[a-z0-9]+(_[a-z0-9]+)*$"
+  },
+  "genericLinkText": ["click here", "here", "read more", "learn more", "link", "this link", "more"]
+}

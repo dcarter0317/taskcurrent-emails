@@ -1,4 +1,4 @@
-<mjml>
+<mjml lang="en">
   <mj-head>
     <mj-title>TaskCurrent Demo Request Confirmation</mj-title>
     <mj-preview>TaskCurrent Demo Request Confirmation</mj-preview>
@@ -92,7 +92,7 @@
       <!-- CTAs: columns stack on mobile -->
       <mj-section mj-class="body-section" padding="24px 24px 8px" text-align="left">
         <mj-column width="308px" padding-bottom="8px">
-          <mj-button mj-class="btn-primary" align="left" padding="0" css-class="cta" href="https://taskcurrent.vercel.app/early-access?utm_source=taskcurrent&amp;utm_medium=email&amp;utm_campaign=saas_taskcurrent&amp;utm_content=explore_taskCurrent_features">Explore TaskCurrent Features</mj-button>
+          <mj-button mj-class="btn-primary" align="left" padding="0" css-class="cta" href="https://taskcurrent.vercel.app/early-access?utm_source=taskcurrent&amp;utm_medium=email&amp;utm_campaign=saas_taskcurrent&amp;utm_content=explore_taskcurrent_features">Explore TaskCurrent Features</mj-button>
         </mj-column>
       </mj-section>
 

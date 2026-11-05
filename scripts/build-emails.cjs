@@ -26,24 +26,12 @@ const templates = [
 const GMAIL_CLIP_LIMIT = 102 * 1024;
 const isCI = process.env.CI === 'true';
 
-const decodeEntities = (value) =>
-  value
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;|&apos;/gi, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>');
+const { getAttribute, lineOf } = require('./checks/helpers.cjs');
+const { runQualityChecks } = require('./checks/quality.cjs');
 
-const getAttribute = (tag, name) => {
-  const match = tag.match(
-    new RegExp(`\\s${name}(?:\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+)))?(?=[\\s/>])`, 'i')
-  );
-  if (!match) return undefined; // attribute absent
-  const value = match[1] ?? match[2] ?? match[3] ?? '';
-  return decodeEntities(value).trim();
-};
-
-const lineOf = (html, index) => html.slice(0, index).split('\n').length;
+const qualityConfig = JSON.parse(
+  fs.readFileSync(path.join(root, 'email-quality.config.json'), 'utf8')
+);
 
 // Returns { problems: string[], links: Map<url, line> } for one compiled email.
 function validateHtml(html, bytes) {
@@ -72,8 +60,9 @@ function validateHtml(html, bytes) {
   for (const match of html.matchAll(/<a\b[^>]*>/gi)) {
     const line = lineOf(html, match.index);
     const href = getAttribute(match[0], 'href');
-    if (!href || href === '#') {
-      problems.push(`line ${line}: <a> has an empty href (got "${href ?? ''}")`);
+    if (href === '#') continue; // placeholder: reported as a warning by runQualityChecks
+    if (!href) {
+      problems.push(`line ${line}: <a> has an empty href`);
       continue;
     }
     if (/^(mailto|tel|sms):/i.test(href)) {
@@ -188,11 +177,18 @@ for (const source of templates) {
     continue;
   }
 
-  const { problems, links } = validateHtml(html.toString('utf8'), html.length);
-  if (problems.length) {
+  const htmlText = html.toString('utf8');
+  const { problems, links } = validateHtml(htmlText, html.length);
+  const quality = runQualityChecks(htmlText, qualityConfig);
+  const allErrors = [...problems, ...quality.errors];
+  if (quality.warnings.length) {
+    console.warn(`WARNINGS: ${source} (${quality.warnings.length})`);
+    for (const warning of quality.warnings) console.warn(`  - ${warning}`);
+  }
+  if (allErrors.length) {
     failed = true;
     console.error(`INVALID: ${source}`);
-    for (const problem of problems) console.error(`  - ${problem}`);
+    for (const problem of allErrors) console.error(`  - ${problem}`);
     continue;
   }
 
@@ -214,6 +210,7 @@ for (const source of templates) {
     html: htmlName,
     bytes: html.length,
     sha256: crypto.createHash('sha256').update(html).digest('hex'),
+    warnings: quality.warnings,
   });
   console.log(`OK: ${source} -> dist/${htmlName} (${html.length} bytes)`);
 }

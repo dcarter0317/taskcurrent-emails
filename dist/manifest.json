@@ -1,43 +1,94 @@
 {
   "project": "taskcurrent",
-  "generated_at": "2026-11-05T12:55:16.452Z",
+  "generated_at": "2026-11-05T17:24:04.125Z",
   "template_count": 6,
   "templates": [
     {
       "source": "demo_reminder.mjml",
       "html": "demo_reminder.html",
-      "bytes": 47496,
-      "sha256": "4b3cd45bcb69e6b94bff8e6be0dab11d9aac1db7e8000bc03fe7fc41d927df48"
+      "bytes": 47494,
+      "sha256": "42229f6ed74c136c724706334646c50b886b88f62ce4b2b0ecb942897b703a15",
+      "warnings": [
+        "preview text duplicates the title (\"TaskCurrent Demo Reminder\")",
+        "line 366: <img> has no width/height (layout shifts when images are blocked)",
+        "line 385: placeholder href=\"#\" (text: \"View in browser\")",
+        "line 758: placeholder href=\"#\" (text: \"Privacy\")",
+        "line 760: placeholder href=\"#\" (text: \"Preferences\")",
+        "line 762: placeholder href=\"#\" (text: \"Unsubscribe\")"
+      ]
     },
     {
       "source": "demo_request_confirmation.mjml",
       "html": "demo_request_confirmation.html",
-      "bytes": 41859,
-      "sha256": "3e309dafb3f506d1a9613b91eea540f8673137ed71456d727491535b7581df88"
+      "bytes": 41857,
+      "sha256": "7f96efb94c47afac01155f5df227509d56a922ecc97368fcb58421499460dda7",
+      "warnings": [
+        "preview text duplicates the title (\"TaskCurrent Demo Request Confirmation\")",
+        "line 366: <img> has no width/height (layout shifts when images are blocked)",
+        "line 385: placeholder href=\"#\" (text: \"View in browser\")",
+        "line 700: placeholder href=\"#\" (text: \"Privacy\")",
+        "line 702: placeholder href=\"#\" (text: \"Preferences\")",
+        "line 704: placeholder href=\"#\" (text: \"Unsubscribe\")"
+      ]
     },
     {
       "source": "early_access.mjml",
       "html": "early_access.html",
-      "bytes": 41534,
-      "sha256": "59f1c2959d1ea4283c87382d7d060e1b3efb08967f3a0b38a6857bb7bae2f6cf"
+      "bytes": 41532,
+      "sha256": "fa1fb75c4b207352897d4eee11735ad39546d9b678b250a1a2a25176715e3025",
+      "warnings": [
+        "preview text duplicates the title (\"TaskCurrent Early Access Confirmation\")",
+        "line 376: <img> has no width/height (layout shifts when images are blocked)",
+        "line 395: placeholder href=\"#\" (text: \"View in browser\")",
+        "line 700: placeholder href=\"#\" (text: \"Privacy\")",
+        "line 702: placeholder href=\"#\" (text: \"Contact us\")"
+      ]
     },
     {
       "source": "early_access_product_intro.mjml",
       "html": "early_access_product_intro.html",
-      "bytes": 47030,
-      "sha256": "ba85bc54e9840cfe05b4441730d72ba4ff953d7536a3a125d5d3eb95434f0256"
+      "bytes": 47028,
+      "sha256": "10cbf9db9ee5f143c2e1ae049efe65d3ca403765479fac37fdcf9a3bf1e32ec3",
+      "warnings": [
+        "preview text duplicates the title (\"TaskCurrent Early Access Product Introduction\")",
+        "line 366: <img> has no width/height (layout shifts when images are blocked)",
+        "line 524: <img> has no width/height (layout shifts when images are blocked)",
+        "line 576: <img> has no width/height (layout shifts when images are blocked)",
+        "line 628: <img> has no width/height (layout shifts when images are blocked)",
+        "line 385: placeholder href=\"#\" (text: \"View in browser\")",
+        "line 757: placeholder href=\"#\" (text: \"Privacy\")",
+        "line 759: placeholder href=\"#\" (text: \"Preferences\")",
+        "line 761: placeholder href=\"#\" (text: \"Unsubscribe\")"
+      ]
     },
     {
       "source": "post_demo_followup.mjml",
       "html": "post_demo_followup.html",
-      "bytes": 51200,
-      "sha256": "d0a6886df7a58babbab0886a71da8e72ee94f52350902b2edfead9bffa0f0bca"
+      "bytes": 51177,
+      "sha256": "17fae73f2967667301aef2cbd73615d95a8de45da6be930f3c3715c394125827",
+      "warnings": [
+        "preview text duplicates the title (\"TaskCurrent Post Demo FollowUp\")",
+        "line 391: <img> has no width/height (layout shifts when images are blocked)",
+        "line 410: placeholder href=\"#\" (text: \"View in browser\")",
+        "line 833: placeholder href=\"#\" (text: \"Privacy\")",
+        "line 835: placeholder href=\"#\" (text: \"Preferences\")",
+        "line 837: placeholder href=\"#\" (text: \"Unsubscribe\")"
+      ]
     },
     {
       "source": "use_case.mjml",
       "html": "use_case.html",
-      "bytes": 42503,
-      "sha256": "bdb8e3e0a538654f291a3a8ef31acbd0580c45ce35ad407bc675e4758a5f4c26"
+      "bytes": 42501,
+      "sha256": "3318ea0ea93178269a6ada898782380db2b3939606ea7b2675372ec378170b9d",
+      "warnings": [
+        "preview text duplicates the title (\"TaskCurrent Use Case\")",
+        "line 366: <img> has no width/height (layout shifts when images are blocked)",
+        "line 587: <img> has no width/height (layout shifts when images are blocked)",
+        "line 385: placeholder href=\"#\" (text: \"View in browser\")",
+        "line 716: placeholder href=\"#\" (text: \"Privacy\")",
+        "line 718: placeholder href=\"#\" (text: \"Preferences\")",
+        "line 720: placeholder href=\"#\" (text: \"Unsubscribe\")"
+      ]
     }
   ]
 }
