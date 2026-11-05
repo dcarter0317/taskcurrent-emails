@@ -1,7 +1,7 @@
 <mjml>
   <mj-head>
-    <mj-title>TaskCurrent Demo Request Confirmation</mj-title>
-    <mj-preview>TaskCurrent Demo Request Confirmation</mj-preview>
+    <mj-title>TaskCurrent Post Demo FollowUp</mj-title>
+    <mj-preview>TaskCurrent Post Demo FollowUp</mj-preview>
     <mj-include path="./styles.mjml" />
     <mj-style>
       @media (max-width: 479px) {
