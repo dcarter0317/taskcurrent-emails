@@ -1,0 +1,93 @@
+name: Build TaskCurrent MJML Emails
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '*.mjml'
+      - 'components/**/*.mjml'
+      - 'scripts/build-emails.cjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/build-mjml.yml'
+  pull_request:
+    branches: [master]
+    paths:
+      - '*.mjml'
+      - 'components/**/*.mjml'
+      - 'scripts/build-emails.cjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/build-mjml.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate and compile all six MJML templates
+        run: npm run build:emails
+
+      - name: Upload compiled email HTML
+        uses: actions/upload-artifact@v4
+        with:
+          name: taskcurrent-html-emails
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14
+
+      # Only a successful build on master (or manually dispatched on master)
+      # should notify n8n. Pull requests validate emails but do not use secrets.
+      - name: Notify n8n about successful build
+        if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/master' }}
+        shell: bash
+        env:
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+          N8N_WEBHOOK_URL: https://n8n.dcartdevelopment.com/webhook/taskcurrent-email-build
+        run: |
+          if [[ -z "$CF_ACCESS_CLIENT_ID" || -z "$CF_ACCESS_CLIENT_SECRET" ]]; then
+            echo '::error::Missing Cloudflare Access service credentials'
+            exit 1
+          fi
+
+          node <<'NODE'
+          const fs = require('node:fs');
+          const manifest = JSON.parse(fs.readFileSync('dist/manifest.json', 'utf8'));
+          const payload = {
+            event: 'mjml.build.succeeded',
+            project: 'taskcurrent',
+            commit_sha: process.env.GITHUB_SHA,
+            branch: process.env.GITHUB_REF_NAME,
+            run_id: process.env.GITHUB_RUN_ID,
+            run_url: `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+            template_count: manifest.template_count,
+            templates: manifest.templates,
+          };
+          fs.writeFileSync('/tmp/taskcurrent-webhook.json', JSON.stringify(payload));
+          NODE
+
+          curl --silent --show-error --fail-with-body \
+            --max-time 20 \
+            --output /dev/null \
+            --write-out 'n8n HTTP status: %{http_code}\n' \
+            -X POST "$N8N_WEBHOOK_URL" \
+            -H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID" \
+            -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET" \
+            -H 'Content-Type: application/json' \
+            --data-binary @/tmp/taskcurrent-webhook.json
