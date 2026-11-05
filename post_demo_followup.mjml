@@ -50,25 +50,23 @@
           </mj-text>
         </mj-column>
       </mj-section>
-      <mj-wrapper mj-class="body-section" padding="8px 24px">
-        <mj-section css-class="steps-grid" background-color="#ffffff" border="1px solid #E4E9F0" border-radius="16px" padding="0">
-          <mj-column width="33.33%" css-class="steps-col steps-col-divider" padding="20px" border-right="1px solid #E4E9F0">
+      <mj-section mj-class="body-section" css-class="steps-grid" padding="8px 24px">
+          <mj-column width="33.33%" css-class="steps-col steps-col-divider" padding="20px" border-top="1px solid #E4E9F0" border-bottom="1px solid #E4E9F0" border-left="1px solid #E4E9F0" border-radius="16px 0 0 16px" border-right="1px solid #E4E9F0">
             <mj-image src="https://res.cloudinary.com/wm6ofka9/image/upload/v1791809962/icon_link_demo_recap2x.png" alt="" width="40px" height="40px" align="left" padding="0 0 8px 0" />
             <mj-text css-class="steps-label-cyan" font-size="12px" line-height="18px" font-weight="600" text-transform="uppercase" letter-spacing="0.8px" color="#08677D" padding="0 0 4px 0">01 · Capture</mj-text>
             <mj-text css-class="steps-col-text" font-size="15px" line-height="22px" font-weight="400" color="#101828" padding="0">Bring the lead into TaskCurrent.</mj-text>
           </mj-column>
-          <mj-column width="33.33%" css-class="steps-col steps-col-divider" padding="20px" border-right="1px solid #E4E9F0">
+          <mj-column width="33.33%" css-class="steps-col steps-col-divider" padding="20px" border-top="1px solid #E4E9F0" border-bottom="1px solid #E4E9F0" border-right="1px solid #E4E9F0">
             <mj-image src="https://res.cloudinary.com/wm6ofka9/image/upload/v1791809961/icon_branch_demo_recap2x.png" alt="" width="40px" height="40px" align="left" padding="0 0 8px 0" />
             <mj-text css-class="steps-label-brand" font-size="12px" line-height="18px" font-weight="600" text-transform="uppercase" letter-spacing="0.8px" color="#5267FF" padding="0 0 4px 0">02 · Automate</mj-text>
             <mj-text css-class="steps-col-text" font-size="15px" line-height="22px" font-weight="400" color="#101828" padding="0">Run qualification and follow-up automatically.</mj-text>
           </mj-column>
-          <mj-column width="33.33%" css-class="steps-col" padding="20px">
+          <mj-column width="33.33%" css-class="steps-col" padding="20px" border-top="1px solid #E4E9F0" border-bottom="1px solid #E4E9F0" border-right="1px solid #E4E9F0" border-radius="0 16px 16px 0">
             <mj-image src="https://res.cloudinary.com/wm6ofka9/image/upload/v1791809962/icon_check_demo_recap2x.png" alt="" width="40px" height="40px" align="left" padding="0 0 8px 0" />
             <mj-text css-class="steps-label-violet" font-size="12px" line-height="18px" font-weight="600" text-transform="uppercase" letter-spacing="0.8px" color="#6A4BE0" padding="0 0 4px 0">03 · Improve</mj-text>
             <mj-text css-class="steps-col-text" font-size="15px" line-height="22px" font-weight="400" color="#101828" padding="0">Measure response time and conversion.</mj-text>
           </mj-column>
-        </mj-section>
-      </mj-wrapper>
+      </mj-section>
    
       <mj-section mj-class="body-section" padding="16px 24px">
         <mj-column width="100%">

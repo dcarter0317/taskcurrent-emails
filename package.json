@@ -1,0 +1,12 @@
+{
+  "name": "taskcurrent-emails",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MJML email templates with a validated GitHub Actions build",
+  "scripts": {
+    "build:emails": "node scripts/build-emails.cjs"
+  },
+  "devDependencies": {
+    "mjml": "5.4.1"
+  }
+}
