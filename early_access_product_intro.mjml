@@ -9,7 +9,7 @@
         td.cta > table { margin: 0 auto !important; }
       }
     </mj-style>
-  </mj-head>z
+  </mj-head>
 
   <mj-body css-class="page" background-color="#eef2f5">
     <!-- 2. Pull in your Reusable Header -->
